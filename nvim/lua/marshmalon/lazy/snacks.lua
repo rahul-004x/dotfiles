@@ -1,6 +1,7 @@
 return {
   {
     "folke/snacks.nvim",
+    lazy = false, -- Ensure the plugin loads on startup
     opts = {
       indent = { enabled = true },
       terminal = {
