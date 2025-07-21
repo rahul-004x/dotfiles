@@ -16,9 +16,17 @@ return {
       image = {
         -- Enable the image viewer (default settings)
         enabled = true,
-        -- You can customize further as needed, see docs for options
-        -- formats = { "png", "jpg", ... },
-        -- doc = { enabled = true, inline = true, float = true },
+        -- Disable inline preview but keep float preview
+        doc = {
+          enabled = true,
+          inline = false,
+          float = false,
+        },
+      },
+      animate = {
+        duration = 16,     -- ms per step (lower = faster/smoother)
+        easing = "inOutCubic", -- smooth, modern easing
+        fps = 60,          -- full FPS for smoothest animation
       },
     },
     keys = {
@@ -151,13 +159,13 @@ return {
         end,
         desc = "Git Diff (Hunks)",
       },
-      {
-        "<leader>gf",
-        function()
-          Snacks.picker.git_log_file()
-        end,
-        desc = "Git Log File",
-      },
+      -- {
+      --   "<leader>gF",
+      --   function()
+      --     Snacks.picker.git_log_file()
+      --   end,
+      --   desc = "Git Log File",
+      -- },
       -- Grep
       {
         "<leader>sb",
@@ -391,7 +399,7 @@ return {
     config = function(_, opts)
       require("snacks").setup(opts)
       -- Terminal keymaps
-      vim.keymap.set("n", "<C-j>", function()
+      vim.keymap.set("n", "<leader>n", function()
         require("snacks.terminal").toggle()
       end, { desc = "Toggle Snacks Floating Terminal" })
       vim.keymap.set("t", "<C-j>", function()

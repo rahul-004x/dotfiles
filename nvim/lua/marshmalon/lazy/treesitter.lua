@@ -21,6 +21,7 @@ return {
 				"json",
 				"dockerfile",
 				"ini",
+        "prisma"
 			},
 			sync_install = false,
 			highlight = { enable = true },

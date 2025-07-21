@@ -20,11 +20,27 @@ return {
         "NeoTreeTabSeparatorInactive",
         "NeoTreeTabSeparatorActive",
         "NeoTreeVertSplit",
+        -- Add blink.cmp highlight groups for transparency
+        "BlinkCmpMenu", -- Main completion menu
+        "BlinkCmpLabel", -- Completion item label
+        "BlinkCmpLabelDetail", -- Label detail
+        "BlinkCmpLabelDescription", -- Label description
+        "BlinkCmpKind", -- Kind icon/text
+        "BlinkCmpSource", -- Source name
       },
-      exclude_groups = {}, -- Groups you don't want to clear
+      exclude_groups = {
+        -- Keep borders and scrollbars visible
+        "BlinkCmpMenuBorder", -- Menu border
+        "BlinkCmpScrollBarThumb", -- Scrollbar
+        "BlinkCmpScrollBarGutter", -- Scrollbar gutter
+        "BlinkCmpMenuSelection", -- Selected item background
+      }, -- Groups you don't want to clear
     })
 
     -- Clear all highlight groups that start with "NeoTree"
     require("transparent").clear_prefix("NeoTree")
+    
+    -- Clear all highlight groups that start with "BlinkCmp"
+    require("transparent").clear_prefix("BlinkCmp")
   end,
 }

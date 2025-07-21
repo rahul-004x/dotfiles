@@ -15,6 +15,9 @@ vim.keymap.set("n", "<c-h>", ":wincmd h<CR>")
 vim.keymap.set("n", "<c-l>", ":wincmd l<CR>")
 
 vim.keymap.set("n", "<leader>h", ":nohlsearch<CR>")
+-- Map <Esc> in normal mode to clear search highlighting
+vim.keymap.set("n", "<Esc>", ":noh<CR>", { noremap = true, silent = true })
+
 vim.wo.number = true
 vim.wo.relativenumber = true
 
