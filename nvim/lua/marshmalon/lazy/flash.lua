@@ -17,7 +17,7 @@
       end, { desc = "Flash Jump" })
 
       -- 'S' for Treesitter-powered jump (normal, visual, operator-pending)
-      vim.keymap.set({ "n", "x", "o" }, "S", function()
+      vim.keymap.set({ "n", "x", "o" }, "F", function()
         require("flash").treesitter()
       end, { desc = "Flash Treesitter" })
 

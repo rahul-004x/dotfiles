@@ -33,11 +33,14 @@ return {
       local options = {
         keymap = {
           preset = "default",
-          -- Accept completion
-          ["<Tab>"] = { "accept", "fallback" },
-          ["<CR>"] = { "accept", "fallback" },
-          ["<C-y>"] = { "accept" },
-          ["<C-l>"] = { "accept" },
+            -- Accept completion
+            ["<Tab>"] = { "accept", "fallback" },
+            ["<CR>"] = { "accept", "fallback" },
+            ["<C-y>"] = { "accept" },
+            ["<C-l>"] = { "accept" },
+            
+            -- Decline completion
+            ["<C-k>"] = { "cancel", "fallback" },
           
           -- Documentation scrolling
           ["<C-f>"] = { "scroll_documentation_down", "fallback" },

@@ -3,6 +3,7 @@ return {
 		"neovim/nvim-lspconfig",
 		dependencies = {
 			"saghen/blink.cmp",
+			"SmiteshP/nvim-navic", -- For breadcrumbs
 			{
 				"williamboman/mason.nvim",
 				lazy = false,
@@ -59,33 +60,47 @@ return {
 			vim.keymap.set("n", "]d", vim.diagnostic.goto_next, {}) -- Go to next diagnostic
 
 			-- Manual setup for each language server
+			-- Common on_attach function for all LSP servers to enable navic breadcrumbs
+			local on_attach = function(client, bufnr)
+				if client.server_capabilities.documentSymbolProvider then
+					require("nvim-navic").attach(client, bufnr)
+				end
+			end
+			
 			require("lspconfig").lua_ls.setup({
 				capabilities = capabilities,
+				on_attach = on_attach,
 			})
 
 			require("lspconfig").ts_ls.setup({
 				capabilities = capabilities,
+				on_attach = on_attach,
 			})
 
 			require("lspconfig").html.setup({
 				capabilities = capabilities,
+				on_attach = on_attach,
 			})
 
 			require("lspconfig").emmet_language_server.setup({
 				filetypes = { "html", "css", "javascriptreact", "typescriptreact" },
 				capabilities = capabilities,
+				on_attach = on_attach,
 			})
 
 			require("lspconfig").tailwindcss.setup({
 				capabilities = capabilities,
+				on_attach = on_attach,
 			})
 
 			require("lspconfig").dockerls.setup({
 				capabilities = capabilities,
+				on_attach = on_attach,
 			})
 
 			require("lspconfig").yamlls.setup({
 				capabilities = capabilities,
+				on_attach = on_attach,
 			})
 
 			require("lspconfig").graphql.setup({
