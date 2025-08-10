@@ -3,7 +3,7 @@ return {
   lazy = true,
   keys = {
     {
-      "<leader>u",
+      "<leader>U",
       function()
         vim.cmd.UndotreeToggle()
       end,

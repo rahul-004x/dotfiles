@@ -399,7 +399,7 @@ return {
     config = function(_, opts)
       require("snacks").setup(opts)
       -- Terminal keymaps
-      vim.keymap.set("n", "<leader>n", function()
+      vim.keymap.set("n", "<leader>N", function()
         require("snacks.terminal").toggle()
       end, { desc = "Toggle Snacks Floating Terminal" })
       vim.keymap.set("t", "<C-j>", function()
