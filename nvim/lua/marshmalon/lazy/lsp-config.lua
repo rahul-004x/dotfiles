@@ -115,6 +115,16 @@ return {
 				capabilities = capabilities,
 			})
 
+			require("lspconfig").sqlls.setup({
+				capabilities = capabilities,
+				on_attach = on_attach,
+			})
+
+			require("lspconfig").jdtls.setup({
+				capabilities = capabilities,
+				on_attach = on_attach,
+			})
+
 			vim.api.nvim_create_autocmd("LspAttach", {
 				callback = function(args)
 					local c = vim.lsp.get_client_by_id(args.data.client_id)
