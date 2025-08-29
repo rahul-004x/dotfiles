@@ -60,7 +60,7 @@ return {
         desc = "Command History",
       },
       {
-        "<leader>n",
+        "<leader>nn",
         function()
           Snacks.picker.notifications()
         end,
@@ -398,6 +398,10 @@ return {
     },
     config = function(_, opts)
       require("snacks").setup(opts)
+      
+      -- Set Snacks as the default notification handler
+      vim.notify = require("snacks").notifier.notify
+      
       -- Terminal keymaps
       vim.keymap.set("n", "<leader>N", function()
         require("snacks.terminal").toggle()

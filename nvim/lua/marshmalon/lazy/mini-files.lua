@@ -33,7 +33,7 @@ return {
       })
 
       -- Set keymaps to open mini.files
-      vim.keymap.set("n", "<leader>m", function()
+      vim.keymap.set("n", "<leader>mm", function()
         require("mini.files").open()
       end, { desc = "Open file explorer" })
 
