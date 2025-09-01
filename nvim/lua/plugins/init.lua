@@ -21,4 +21,4 @@ vim.keymap.set("n", "<Esc>", ":noh<CR>", { noremap = true, silent = true })
 vim.wo.number = true
 vim.wo.relativenumber = true
 
-require("marshmalon.lazy_init")
+require("plugins.lazy_init")
