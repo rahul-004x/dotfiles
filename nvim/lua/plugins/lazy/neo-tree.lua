@@ -33,7 +33,7 @@ return {
 			end
 		end
 		
-		vim.keymap.set("n", "<C-n>", toggle_neotree, {})
+		vim.keymap.set("n", "<C-m>", toggle_neotree, {})
 		vim.keymap.set("n", "<leader>bf", ":Neotree buffers reveal float<CR>", {})
 	end,
 }

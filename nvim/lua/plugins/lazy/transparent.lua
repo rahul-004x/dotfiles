@@ -1,6 +1,5 @@
 -- plugins/transparent.lua
 
----@type LazyPluginSpec
 return {
   "xiyaowong/transparent.nvim",
   -- It's recommended NOT to lazy-load this plugin
