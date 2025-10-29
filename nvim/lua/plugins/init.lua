@@ -7,6 +7,11 @@ vim.g.background = "light"
 vim.opt.guifont = "FiraCode Nerd Font:h14"
 
 vim.opt.swapfile = false
+vim.opt.autoread = true
+-- Auto reload files when changed outside of Neovim
+vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold", "CursorHoldI" }, {
+	command = "checktime",
+})
 
 -- Navigate vim panes better
 vim.keymap.set("n", "<c-k>", ":wincmd k<CR>")
@@ -22,6 +27,7 @@ vim.keymap.set("v", "<leader>y", '"+y')
 vim.keymap.set("n", "<leader>p", '"+p')
 vim.keymap.set("v", "<leader>p", '"+p')
 
+vim.keymap.set("i", "<C-j>", "<Esc>", { noremap = true, silent = true })
 
 vim.keymap.set("n", "<leader>h", ":nohlsearch<CR>")
 -- Map <Esc> in normal mode to clear search highlighting
@@ -29,5 +35,15 @@ vim.keymap.set("n", "<Esc>", ":noh<CR>", { noremap = true, silent = true })
 
 vim.wo.number = true
 vim.wo.relativenumber = true
+vim.wo.cursorline = true
+
+vim.keymap.set("n", "<leader>sr", function()
+	local word = vim.fn.expand("<cword>")
+	local replacement = vim.fn.input('Replace "' .. word .. '" by? ')
+	if replacement == "" then
+		return
+	end
+	vim.cmd("%s/\\v<" .. word .. ">/" .. replacement .. "/g")
+end, { noremap = true, silent = true })
 
 require("plugins.lazy_init")

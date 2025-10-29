@@ -48,7 +48,7 @@ return {
         severity_sort = true, -- Sort by severity
         float = {
           border = "rounded",
-          source = "always", -- Show source of diagnostic
+          source = "if_many", -- Show source of diagnostic
           header = "",
           prefix = "",
         },

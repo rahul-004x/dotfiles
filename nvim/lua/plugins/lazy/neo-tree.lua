@@ -23,7 +23,6 @@ return {
 			local manager = require("neo-tree.sources.manager")
 			local renderer = require("neo-tree.ui.renderer")
 			local state = manager.get_state("filesystem")
-			
 			if renderer.window_exists(state) then
 				-- If neo-tree is open, close it
 				vim.cmd("Neotree close")
@@ -32,8 +31,7 @@ return {
 				vim.cmd("Neotree filesystem right")
 			end
 		end
-		
-		vim.keymap.set("n", "<C-m>", toggle_neotree, {})
-		vim.keymap.set("n", "<leader>bf", ":Neotree buffers reveal float<CR>", {})
+		-- vim.keymap.set("n", "<C-m>", toggle_neotree, {})
+		-- vim.keymap.set("n", "<leader>bf", ":Neotree buffers reveal float<CR>", {})
 	end,
 }

@@ -22,7 +22,7 @@ return {
         },
       })
       local builtin = require("telescope.builtin")
-      vim.keymap.set("n", "<C-p>", builtin.find_files, {})
+      -- vim.keymap.set("n", "<C-p>", builtin.find_files, {})
       vim.keymap.set("n", "<leader>fh", function()
         builtin.find_files({ hidden = true, no_ignore = true })
       end, { desc = "Find all files including hidden" })
