@@ -66,63 +66,86 @@ return {
           require("nvim-navic").attach(client, bufnr)
         end
       end
-      require("lspconfig").lua_ls.setup({
+
+      vim.lsp.config("lua_ls", {
         capabilities = capabilities,
         on_attach = on_attach,
       })
+      vim.lsp.enable("lua_ls")
 
-      require("lspconfig").ts_ls.setup({
+      vim.lsp.config("ts_ls", {
         capabilities = capabilities,
         on_attach = on_attach,
       })
+      vim.lsp.enable("ts_ls")
 
-      require("lspconfig").html.setup({
+      vim.lsp.config("html", {
         capabilities = capabilities,
         on_attach = on_attach,
       })
+      vim.lsp.enable("html")
 
-      require("lspconfig").emmet_language_server.setup({
+      vim.lsp.config("emmet_language_server", {
+        capabilities = capabilities,
+        on_attach = on_attach,
         filetypes = { "html", "css", "javascriptreact", "typescriptreact" },
+      })
+      vim.lsp.enable("emmet_language_server")
+
+      vim.lsp.config("tailwindcss", {
+        capabilities = capabilities,
+        on_attach = on_attach,
+      })
+      vim.lsp.enable("tailwindcss")
+
+      vim.lsp.config("dockerls", {
+        capabilities = capabilities,
+        on_attach = on_attach,
+      })
+      vim.lsp.enable("dockerls")
+
+      vim.lsp.config("yamlls", {
+        capabilities = capabilities,
+        on_attach = on_attach,
+      })
+      vim.lsp.enable("yamlls")
+
+      vim.lsp.config("graphql", {
+        capabilities = capabilities,
+        on_attach = on_attach,
+      })
+      vim.lsp.enable("graphql")
+
+      vim.lsp.config("sqlls", {
+        capabilities = capabilities,
+        on_attach = on_attach,
+      })
+      vim.lsp.enable("sqlls")
+
+      vim.lsp.config("prismals", {
+        capabilities = capabilities,
+        on_attach = on_attach,
+      })
+      vim.lsp.enable("prismals")
+
+      vim.lsp.config("jsonls", {
+        capabilities = capabilities,
+        on_attach = on_attach,
+      })
+      vim.lsp.enable("jsonls")
+
+      vim.lsp.config("jdtls", {
+        capabilities = capabilities,
+        on_attach = on_attach,
+      })
+      vim.lsp.enable("jdtls")
+
+      vim.lsp.config("copilot_language_server", {
         capabilities = capabilities,
         on_attach = on_attach,
       })
 
-      require("lspconfig").tailwindcss.setup({
-        capabilities = capabilities,
-        on_attach = on_attach,
-      })
-
-      require("lspconfig").dockerls.setup({
-        capabilities = capabilities,
-        on_attach = on_attach,
-      })
-
-      require("lspconfig").yamlls.setup({
-        capabilities = capabilities,
-        on_attach = on_attach,
-      })
-
-      require("lspconfig").graphql.setup({
-        capabilities = capabilities,
-      })
-
-      require("lspconfig").prismals.setup({
-        capabilities = capabilities,
-      })
-
-      require("lspconfig").jsonls.setup({
-        capabilities = capabilities,
-      })
-
-      require("lspconfig").sqlls.setup({
-        capabilities = capabilities,
-        on_attach = on_attach,
-      })
-
-      require("lspconfig").jdtls.setup({
-        capabilities = capabilities,
-        on_attach = on_attach,
-      })
+      vim.lsp.enable("copilot_language_server")
 
       vim.api.nvim_create_autocmd("LspAttach", {
         callback = function(args)
@@ -136,27 +159,6 @@ return {
           vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, { buffer = args.buf })
           vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, { buffer = args.buf })
           vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { buffer = args.buf })
-
-          -- if
-          --     vim.bo.filetype == "lua"
-          --     or vim.bo.filetype == "typescript"
-          --     or vim.bo.filetype == "javascript"
-          --     or vim.bo.filetype == "typescriptreact"
-          --     or vim.bo.filetype == "javascriptreact"
-          --     or vim.bo.filetype == "html"
-          --     or vim.bo.filetype == "css"
-          --     or vim.bo.filetype == "scss"
-          --     or vim.bo.filetype == "vue"
-          --     or vim.bo.filetype == "prisma"
-          -- then
-          --   -- Format the current buffer on save
-          --   vim.api.nvim_create_autocmd("BufWritePre", {
-          --     buffer = args.buf,
-          --     callback = function()
-          --       vim.lsp.buf.format({ bufnr = args.buf, id = c.id })
-          --     end,
-          --   })
-          -- end
         end,
       })
     end,

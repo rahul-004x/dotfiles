@@ -10,7 +10,7 @@ vim.opt.swapfile = false
 vim.opt.autoread = true
 -- Auto reload files when changed outside of Neovim
 vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold", "CursorHoldI" }, {
-	command = "checktime",
+  command = "checktime",
 })
 
 -- Navigate vim panes better
@@ -38,12 +38,12 @@ vim.wo.relativenumber = true
 vim.wo.cursorline = true
 
 vim.keymap.set("n", "<leader>sr", function()
-	local word = vim.fn.expand("<cword>")
-	local replacement = vim.fn.input('Replace "' .. word .. '" by? ')
-	if replacement == "" then
-		return
-	end
-	vim.cmd("%s/\\v<" .. word .. ">/" .. replacement .. "/g")
+  local word = vim.fn.expand("<cword>")
+  local replacement = vim.fn.input('Replace "' .. word .. '" by? ')
+  if replacement == "" then
+    return
+  end
+  vim.cmd("%s/\\v<" .. word .. ">/" .. replacement .. "/g")
 end, { noremap = true, silent = true })
 
 require("plugins.lazy_init")

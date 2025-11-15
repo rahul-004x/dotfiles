@@ -15,17 +15,19 @@ return {
 					".eslintrc.yaml",
 					".eslintrc.yml",
 					".eslintrc.json",
+					"eslint_d.config.js",
 				})
 			end,
 		}
+
 		null_ls.setup({
 			sources = {
 				null_ls.builtins.formatting.stylua,
 				null_ls.builtins.formatting.prettier,
 				null_ls.builtins.formatting.sqlfmt,
-				require("none-ls.diagnostics.eslint_d"),
-				require("none-ls.formatting.eslint_d"),
-				require("none-ls.code_actions.eslint_d"),
+				require("none-ls.diagnostics.eslint_d").with(eslint_config),
+				require("none-ls.formatting.eslint_d").with(eslint_config),
+				require("none-ls.code_actions.eslint_d").with(eslint_config),
 			},
 		})
 

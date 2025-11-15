@@ -7,8 +7,8 @@ return {
     opts = {
       integrations = { blink_cmp = true },
     },
-    config = function()
-      vim.cmd.colorscheme("catppuccin-mocha")
-    end,
-  },
+      config = function()
+        vim.cmd.colorscheme("catppuccin-mocha")
+      end,
+   },
 }

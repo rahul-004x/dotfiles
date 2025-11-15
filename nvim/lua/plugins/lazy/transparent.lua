@@ -26,6 +26,15 @@ return {
         "BlinkCmpLabelDescription", -- Label description
         "BlinkCmpKind",         -- Kind icon/text
         "BlinkCmpSource",       -- Source name
+        -- Add Snacks highlight groups for transparency
+        "SnacksNormal",
+        "SnacksNormalNC",
+        "SnacksBackdrop",
+        "SnacksNotifierInfo",
+        "SnacksNotifierWarn",
+        "SnacksNotifierError",
+        "SnacksNotifierDebug",
+        "SnacksNotifierTrace",
       },
       exclude_groups = {
         -- Keep borders and scrollbars visible
@@ -33,6 +42,7 @@ return {
         "BlinkCmpScrollBarThumb", -- Scrollbar
         "BlinkCmpScrollBarGutter", -- Scrollbar gutter
         "BlinkCmpMenuSelection", -- Selected item background
+        "SnacksBorder",        -- Snacks borders
       },                       -- Groups you don't want to clear
     })
 
@@ -40,5 +50,7 @@ return {
     require("transparent").clear_prefix("NeoTree")
     -- Clear all highlight groups that start with "BlinkCmp"
     require("transparent").clear_prefix("BlinkCmp")
+    -- Clear all highlight groups that start with "Snacks"
+    require("transparent").clear_prefix("Snacks")
   end,
 }
