@@ -15,6 +15,6 @@ return {
       end,
     })
     -- Keymap to toggle aerial window
-    vim.keymap.set("n", "<leader>a", "<cmd>AerialToggle!<CR>")
+    vim.keymap.set("n", "<leader>A", "<cmd>AerialToggle!<CR>")
   end,
 }

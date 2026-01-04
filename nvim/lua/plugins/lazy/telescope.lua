@@ -13,7 +13,6 @@ return {
             "node_modules/.*",
             "%.git/.*",
           },
-          find_command = { "fd", "--type", "f", "--hidden", "--no-ignore", "--exclude", ".git", "--exclude", "node_modules" },
         },
         extensions = {
           ["ui-select"] = {

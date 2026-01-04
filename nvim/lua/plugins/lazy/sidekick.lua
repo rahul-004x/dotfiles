@@ -1,5 +1,5 @@
 return {
-  "folke/sidekick.nvim",
+"folke/sidekick.nvim",
   opts = {
     -- add any options here
     cli = {
@@ -7,6 +7,7 @@ return {
         backend = "tmux",
         enabled = true,
       },
+      terminal_mode = "insert", -- disable vim normal mode in terminal
     },
   },
   keys = {
@@ -86,9 +87,9 @@ return {
     {
       "<leader>ac",
       function()
-        require("sidekick.cli").toggle({ name = "copilot", focus = true })
+        require("sidekick.cli").toggle({ name = "opencode", focus = true })
       end,
-      desc = "Sidekick Toggle Claude",
+      desc = "Sidekick Toggle opencode",
     },
   },
 }

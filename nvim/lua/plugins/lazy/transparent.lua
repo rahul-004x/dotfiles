@@ -1,5 +1,3 @@
--- plugins/transparent.lua
-
 return {
   "xiyaowong/transparent.nvim",
   -- It's recommended NOT to lazy-load this plugin
@@ -35,6 +33,28 @@ return {
         "SnacksNotifierError",
         "SnacksNotifierDebug",
         "SnacksNotifierTrace",
+        -- Add mini.files highlight groups for transparency
+        "MiniFilesBorder",
+        "MiniFilesBorderModified",
+        "MiniFilesNormal",
+        "MiniFilesTitle",
+        "MiniFilesTitleFocused",
+        -- Add diagnostic float border for transparency
+        "DiagnosticFloatingError",
+        "DiagnosticFloatingWarn",
+        "DiagnosticFloatingInfo",
+        "DiagnosticFloatingHint",
+        "FloatBorder",
+        -- Add command line highlight groups for transparency
+        "MsgArea",          -- Command line area
+        "MsgSeparator",     -- Command line separator
+        "NoiceCmdlinePopup", -- Noice cmdline popup
+        "NoiceCmdlinePopupBorder", -- Noice cmdline popup border
+        "NoiceCmdlinePopupBorderSearch", -- Noice cmdline popup border (search)
+        "StatusLine",       -- Status line
+        "StatusLineNC",     -- Non-current status line
+        "WinSeparator",     -- Window separator
+        "VertSplit",        -- Vertical split
       },
       exclude_groups = {
         -- Keep borders and scrollbars visible
@@ -43,6 +63,10 @@ return {
         "BlinkCmpScrollBarGutter", -- Scrollbar gutter
         "BlinkCmpMenuSelection", -- Selected item background
         "SnacksBorder",        -- Snacks borders
+        "SnacksPickerBorder",
+        "SnacksPickerCursor",
+        "MiniFilesCursorLine",
+        "CursorLine",
       },                       -- Groups you don't want to clear
     })
 
@@ -50,7 +74,9 @@ return {
     require("transparent").clear_prefix("NeoTree")
     -- Clear all highlight groups that start with "BlinkCmp"
     require("transparent").clear_prefix("BlinkCmp")
-    -- Clear all highlight groups that start with "Snacks"
-    require("transparent").clear_prefix("Snacks")
+    -- Clear all highlight groups that start with "MiniFiles"
+    -- require("transparent").clear_prefix("MiniFiles")
+    -- Clear all highlight groups that start with "Noice"
+    require("transparent").clear_prefix("Noice")
   end,
 }
