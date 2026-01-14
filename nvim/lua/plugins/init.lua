@@ -10,9 +10,10 @@ vim.opt.guicursor = "n-v-c-i:block"
 vim.opt.swapfile = false
 vim.opt.autoread = true
 
--- Auto reload files when changed outside of Neovim
-vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold", "CursorHoldI" }, {
-	command = "checktime",
+-- Associate Dockerfile.* files with the dockerfile filetype
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+  pattern = { "Dockerfile", "Dockerfile.*", "dockerfile", "dockerfile.*" },
+  command = "set filetype=dockerfile",
 })
 
 -- Navigate vim panes better

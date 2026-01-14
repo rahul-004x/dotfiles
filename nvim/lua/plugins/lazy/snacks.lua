@@ -5,13 +5,13 @@ return {
     input = { enable = true },
     opts = {
       input = {},
-      explorer = {},
       indent = { enabled = true },
       terminal = {
-        win = { style = "float" },
-        border = "double",
-
-        -- no winhighlight here → defaults apply
+        win = {
+          position = "bottom",
+          height = 0.4, -- 30% of screen height
+          border = "rounded",
+        },
       },
       quickfile = {
         -- Optional: exclude certain filetypes from quickfile
@@ -23,31 +23,18 @@ return {
             keys = {
               ["<Esc>"] = { "close", mode = { "n", "i" } },
             },
-            wo = {
-              winhighlight = "Normal:SnacksPickerList,FloatBorder:SnacksPickerBorder,CursorLine:SnacksPickerCursor",
-            },
-          },
-          list = {
-            wo = {
-              winhighlight = "Normal:SnacksPickerList,FloatBorder:SnacksPickerBorder,CursorLine:SnacksPickerCursor",
-            },
-          },
-          preview = {
-            wo = {
-              winhighlight = "Normal:SnacksPickerPreview,FloatBorder:SnacksPickerBorder",
-            },
           },
         },
         sources = {
           explorer = {
             hidden = true,
             ignored = true,
-            exclude = { ".DS_Store", "tsconfig.tsbuildinfo" },
+            exclude = { "node_modules", ".turbo", ".next", ".DS_Store", "tsconfig.tsbuildinfo" },
           },
           files = {
             hidden = true,
             ignored = true,
-            exclude = { "node_modules", ".next", "drizzle", "pnpm*", ".DS_Store" },
+            exclude = { "node_modules", ".next", "drizzle", "pnpm*", ".DS_Store", "tsconfig.tsbuildinfo" },
           },
         },
       },
@@ -153,7 +140,6 @@ return {
         end,
         desc = "Recent",
       },
-      -- git
       {
         "<leader>gb",
         function()
@@ -426,17 +412,23 @@ return {
         desc = "LSP Workspace Symbols",
       },
     },
+
     config = function(_, opts)
       vim.notify = require("snacks").notifier.notify
       require("snacks").setup(opts)
 
       -- Terminal keymaps
-      vim.keymap.set("n", "<leader>N", function()
-        require("snacks.terminal").toggle()
-      end, { desc = "Toggle Snacks Floating Terminal" })
-      vim.keymap.set("t", "<C-j>", function()
-        require("snacks.terminal").toggle()
-      end, { desc = "Toggle Snacks Floating Terminal from Terminal Mode" })
+      vim.keymap.set({ "n", "t" }, "<C-/>", function()
+        Snacks.terminal.toggle()
+      end, { desc = "Toggle Terminal" })
+      vim.keymap.set({ "n", "t" }, "<C-_>", function()
+        Snacks.terminal.toggle()
+      end, { desc = "Toggle Terminal" })
+
+      vim.keymap.set("t", "<C-h>", "<cmd>wincmd h<cr>", { desc = "Go to Left Window" })
+      vim.keymap.set("t", "<C-j>", "<cmd>wincmd j<cr>", { desc = "Go to Lower Window" })
+      vim.keymap.set("t", "<C-k>", "<cmd>wincmd k<cr>", { desc = "Go to Upper Window" })
+      vim.keymap.set("t", "<C-l>", "<cmd>wincmd l<cr>", { desc = "Go to Right Window" })
       vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { desc = "Exit Terminal Mode" })
     end,
   },

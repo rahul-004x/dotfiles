@@ -25,7 +25,7 @@ return {
         "sql",
         "java",
         "regex",
-        "bash"
+        "bash",
       },
       sync_install = false,
       auto_install = false,
