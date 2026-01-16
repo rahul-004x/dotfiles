@@ -29,12 +29,12 @@ return {
           explorer = {
             hidden = true,
             ignored = true,
-            exclude = { "node_modules", ".turbo", ".next", ".DS_Store", "tsconfig.tsbuildinfo" },
+            exclude = {".git", "node_modules", ".turbo", ".next", ".DS_Store", "tsconfig.tsbuildinfo" },
           },
           files = {
             hidden = true,
             ignored = true,
-            exclude = { "node_modules", ".next", "drizzle", "pnpm*", ".DS_Store", "tsconfig.tsbuildinfo" },
+            exclude = {".git", "node_modules", ".next", "drizzle", "pnpm*", ".DS_Store", "tsconfig.tsbuildinfo" },
           },
         },
       },
