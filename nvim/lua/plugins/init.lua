@@ -33,13 +33,12 @@ vim.keymap.set("v", "<leader>p", '"+p')
 vim.keymap.set("i", "<C-j>", "<Esc>", { noremap = true, silent = true })
 
 vim.keymap.set("n", "<leader>h", ":nohlsearch<CR>")
--- Map <Esc> in normal mode to clear search highlighting
 vim.keymap.set("n", "<Esc>", ":noh<CR>", { noremap = true, silent = true })
 
 vim.wo.number = true
 vim.wo.relativenumber = true
 vim.wo.cursorline = true
-vim.opt.signcolumn = "yes"
+-- vim.opt.signcolumn = "yes"
 
 vim.keymap.set("n", "<leader>sr", function()
 	local word = vim.fn.expand("<cword>")

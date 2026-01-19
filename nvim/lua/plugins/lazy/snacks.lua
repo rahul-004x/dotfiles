@@ -6,6 +6,20 @@ return {
     opts = {
       input = {},
       indent = { enabled = true },
+      statuscolumn = {
+        brder = false,
+        left = { "mark", "sign" },
+        right = { "fold", "git" },
+        folds = {
+          open = false,
+          git_hl = false,
+        },
+        git = {
+          -- patterns to match Git signs
+          patterns = { "GitSign", "MiniDiffSign" },
+        },
+        refresh = 50,
+      },
       terminal = {
         win = {
           position = "bottom",
@@ -29,12 +43,20 @@ return {
           explorer = {
             hidden = true,
             ignored = true,
-            exclude = {".git", "node_modules", ".turbo", ".next", ".DS_Store", "tsconfig.tsbuildinfo" },
+            exclude = { ".git", "node_modules", ".turbo", ".next", ".DS_Store", "tsconfig.tsbuildinfo" },
           },
           files = {
             hidden = true,
             ignored = true,
-            exclude = {".git", "node_modules", ".next", "drizzle", "pnpm*", ".DS_Store", "tsconfig.tsbuildinfo" },
+            exclude = {
+              ".git",
+              "node_modules",
+              ".next",
+              "drizzle",
+              "pnpm*",
+              ".DS_Store",
+              "tsconfig.tsbuildinfo",
+            },
           },
         },
       },
