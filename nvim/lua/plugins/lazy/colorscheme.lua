@@ -22,4 +22,7 @@ return {
       vim.cmd.colorscheme("kanagawa-wave")
     end,
   },
+  {
+    "rose-pine/neovim",
+  },
 }

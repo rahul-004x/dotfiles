@@ -8,6 +8,7 @@ return {
       typescriptreact = { "biome" },
       json = { "biome" },
       jsonc = { "biome" },
+      prisma = { "prisma" },
     },
     format_on_save = {
       timeout_ms = 500,

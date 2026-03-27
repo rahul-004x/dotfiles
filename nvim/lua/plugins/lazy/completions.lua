@@ -2,22 +2,6 @@ return {
   {
     "saghen/blink.cmp",
     dependencies = "rafamadriz/friendly-snippets",
-    version = "v0.*",
-
-    opts = {
-      keymap = {
-        ["<Tab>"] = {
-          "snippet_forward",
-          function() -- sidekick next edit suggestion
-            return require("sidekick").nes_jump_or_apply()
-          end,
-          function() -- if you are using Neovim's native inline completions
-            return vim.lsp.inline_completion.get()
-          end,
-          "fallback",
-        },
-      },
-    },
 
     config = function()
       -- Set up custom highlights
@@ -65,15 +49,17 @@ return {
         },
 
         appearance = {
-          use_nvim_cmp_as_default = true,
+          use_nvim_cmp_as_default = false,
           nerd_font_variant = "mono",
           kind_icons = {},
         },
-
         completion = {
-          -- Auto-brackets support
+          trigger = {
+            show_on_keyword = true,
+            show_on_x_blocked_trigger_characters = { "{", "(", "[", '"', "'" },
+          },
           accept = {
-            auto_brackets = { enabled = true },
+            auto_brackets = { enabled = false },
           },
 
           -- Menu configuration
@@ -101,6 +87,10 @@ return {
           -- Ghost text
           -- ghost_text = { enabled = true },
         },
+        sources = {
+          default = { "lsp", "path", "snippets", "buffer" },
+        },
+        fuzzy = { implementation = "prefer_rust_with_warning" },
 
         -- Signature help
         signature = { enabled = true },
