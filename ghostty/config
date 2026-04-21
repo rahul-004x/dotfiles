@@ -2,13 +2,12 @@
 font-size = 16
 font-style = medium
 bold-is-bright = true
-theme = catppuccin-mocha
+theme = kanagawabones
 font-family = "Jet Brains Mono"
 
 # cursor
 cursor-style = block
 cursor-style-blink = false
-
 
 # clipboard
 copy-on-select = clipboard
@@ -21,7 +20,6 @@ mouse-hide-while-typing = true
 # window
 initial-window = true
 resize-overlay = never
-background-opacity = 0.78
 window-save-state = always
 window-step-resize = false
 background-blur-radius = 15
@@ -32,7 +30,7 @@ confirm-close-surface = false
 auto-update = check
 auto-update-channel = stable
 quit-after-last-window-closed = true
-shell-integration-features = true
+shell-integration-features = no-cursor
 
 # macos
 macos-option-as-alt = true
