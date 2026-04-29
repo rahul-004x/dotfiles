@@ -1,8 +1,7 @@
 return {
   {
     "saghen/blink.cmp",
-    dependencies = "rafamadriz/friendly-snippets",
-
+    dependencies = { "rafamadriz/friendly-snippets", "saghen/blink.lib" },
     config = function()
       -- Set up custom highlights
       local highlights = {

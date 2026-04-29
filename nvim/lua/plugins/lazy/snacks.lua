@@ -6,6 +6,7 @@ return {
     opts = {
       input = {},
       indent = { enabled = true },
+      gitbrowse = {},
       statuscolumn = {
         border = false,
         left = { "mark", "sign" },
@@ -80,9 +81,19 @@ return {
           {
             pane = 2,
             section = "terminal",
-            cmd = "cava",
+            cmd = "cmatrix",
             height = 5,
             padding = 1,
+          },
+          {
+            pane = 2,
+            icon = " ",
+            desc = "Browse Repo",
+            padding = 1,
+            key = "b",
+            action = function()
+              Snacks.gitbrowse()
+            end,
           },
           { section = "keys",  gap = 1, padding = 1 },
           {
@@ -102,7 +113,7 @@ return {
             enabled = function()
               return Snacks.git.get_root() ~= nil
             end,
-            cmd = "git status --short --branch --renames",
+            cmd = "git --no-pager diff --stat -B -M -C",
             height = 5,
             padding = 1,
             ttl = 5 * 60,
@@ -120,6 +131,13 @@ return {
           Snacks.picker.smart()
         end,
         desc = "Smart Find Files",
+      },
+      {
+        "<leader>gp",
+        function()
+          Snacks.gitbrowse()
+        end,
+        desc = "Git browser",
       },
       {
         "<leader>,",
