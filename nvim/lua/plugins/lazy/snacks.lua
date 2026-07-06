@@ -78,13 +78,13 @@ return {
       dashboard = {
         sections = {
           { section = "header" },
-          {
-            pane = 2,
-            section = "terminal",
-            cmd = "cmatrix",
-            height = 5,
-            padding = 1,
-          },
+          -- {
+          --   pane = 2,
+          --   section = "terminal",
+          --   cmd = "",
+          --   height = 5,
+          --   padding = 1,
+          -- },
           {
             pane = 2,
             icon = " ",

@@ -4,7 +4,7 @@ vim.cmd("set softtabstop=2")
 vim.cmd("set shiftwidth=2")
 vim.g.mapleader = " "
 vim.g.background = "light"
-vim.opt.guifont = "Cascadia Mono"
+vim.opt.guifont = "Cascadia Code"
 vim.opt.guicursor = "n-v-c-i:block"
 
 vim.opt.swapfile = false
