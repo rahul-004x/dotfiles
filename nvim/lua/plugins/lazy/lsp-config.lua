@@ -1,6 +1,7 @@
 return {
   {
     "neovim/nvim-lspconfig",
+    event = { "BufReadPre", "BufNewFile" },
     dependencies = {
       "saghen/blink.cmp",
       "SmiteshP/nvim-navic", -- For breadcrumbs
@@ -44,7 +45,7 @@ return {
         -- },
         signs = true,        -- Show error signs in gutter
         underline = true,    -- Underline errors
-        update_in_insert = true, -- Don't update diagnostics in insert mode
+        update_in_insert = false, -- Don't update diagnostics in insert mode
         severity_sort = true, -- Sort by severity
         float = {
           border = "rounded",
@@ -56,8 +57,8 @@ return {
 
       -- Set global diagnostic keybindings (only once)
       vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, {}) -- Show error in floating window
-      vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, {})      -- Go to previous diagnostic
-      vim.keymap.set("n", "]d", vim.diagnostic.goto_next, {})      -- Go to next diagnostic
+      vim.keymap.set("n", "[d", function() vim.diagnostic.jump({ count = -1, float = true }) end, {}) -- Go to previous diagnostic
+      vim.keymap.set("n", "]d", function() vim.diagnostic.jump({ count = 1, float = true }) end, {}) -- Go to next diagnostic
 
       -- Manual setup for each language server
       -- Common on_attach function for all LSP servers to enable navic breadcrumbs
@@ -139,13 +140,6 @@ return {
         on_attach = on_attach,
       })
       vim.lsp.enable("jdtls")
-
-      vim.lsp.config("copilot_language_server", {
-        capabilities = capabilities,
-        on_attach = on_attach,
-      })
-
-      vim.lsp.enable("copilot_language_server")
 
       vim.api.nvim_create_autocmd("LspAttach", {
         callback = function(args)

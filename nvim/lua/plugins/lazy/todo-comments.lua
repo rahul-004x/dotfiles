@@ -1,5 +1,6 @@
 return {
   "folke/todo-comments.nvim",
+  event = { "BufReadPost", "BufNewFile" },
   dependencies = { "nvim-lua/plenary.nvim" },
   opts = {
     signs = true,
@@ -65,6 +66,6 @@ return {
       require("todo-comments").jump_prev()
     end, { desc = "Previous todo comment" })
 
-    vim.keymap.set("n", "<leader>st", ":TodoTelescope<CR>", { desc = "Search todo comments" })
+    vim.keymap.set("n", "<leader>st", ":TodoQuickFix<CR>", { desc = "Search todo comments" })
   end,
 }

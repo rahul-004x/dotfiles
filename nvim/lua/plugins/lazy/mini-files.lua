@@ -2,6 +2,18 @@ return {
   {
     "echasnovski/mini.files",
     version = false,
+    keys = {
+      {
+        "<leader>mm",
+        function() require("mini.files").open() end,
+        desc = "Open file explorer",
+      },
+      {
+        "<leader>M",
+        function() require("mini.files").open(vim.api.nvim_buf_get_name(0)) end,
+        desc = "Open explorer at current file",
+      },
+    },
     config = function()
       require("mini.files").setup({
         -- Custom key mappings inside the file explorer
@@ -31,16 +43,6 @@ return {
           width_preview = 30,
         },
       })
-
-      -- Set keymaps to open mini.files
-      vim.keymap.set("n", "<leader>mm", function()
-        require("mini.files").open()
-      end, { desc = "Open file explorer" })
-
-      -- Optional: Add keymap to open explorer at current file
-      vim.keymap.set("n", "<leader>M", function()
-        require("mini.files").open(vim.api.nvim_buf_get_name(0))
-      end, { desc = "Open explorer at current file" })
     end,
   },
 }

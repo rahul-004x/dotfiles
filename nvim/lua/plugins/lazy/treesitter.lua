@@ -2,6 +2,7 @@ return {
   "nvim-treesitter/nvim-treesitter",
   branch = "main",
   build = ":TSUpdate",
+  event = { "BufReadPost", "BufNewFile" },
   config = function()
     local languages = {
       "c", "lua", "vim", "vimdoc",
@@ -16,8 +17,9 @@ return {
       return not vim.tbl_contains(already, lang)
     end):totable()
 
+    -- Install missing parsers asynchronously (no blocking startup wait)
     if #to_install > 0 then
-      require("nvim-treesitter").install(to_install):wait()
+      require("nvim-treesitter").install(to_install)
     end
 
     vim.api.nvim_create_autocmd("FileType", {

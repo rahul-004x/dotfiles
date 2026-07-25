@@ -9,6 +9,7 @@ vim.opt.guicursor = "n-v-c-i:block"
 
 vim.opt.swapfile = false
 vim.opt.autoread = true
+vim.opt.updatetime = 250
 
 -- Do not continue comments when pressing o/O or hitting Enter
 vim.opt.formatoptions:remove({ "r", "o" })
@@ -19,11 +20,8 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
   command = "set filetype=dockerfile",
 })
 
--- Navigate vim panes better
-vim.keymap.set("n", "<c-k>", ":wincmd k<CR>")
-vim.keymap.set("n", "<c-j>", ":wincmd j<CR>")
-vim.keymap.set("n", "<c-h>", ":wincmd h<CR>")
-vim.keymap.set("n", "<c-l>", ":wincmd l<CR>")
+-- Pane navigation is handled by nvim-tmux-navigation (<C-h/j/k/l>),
+-- which falls back to plain wincmd movement outside tmux.
 
 -- Copy to system clipboard
 vim.keymap.set("n", "<leader>y", '"+y')

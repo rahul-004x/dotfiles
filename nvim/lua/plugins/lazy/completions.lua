@@ -2,7 +2,8 @@ return {
 	{
 		"saghen/blink.cmp",
 		dependencies = { "rafamadriz/friendly-snippets", "saghen/blink.lib" },
-		build = function() require("blink.cmp").download():wait(60000) end,
+		event = { "InsertEnter", "CmdlineEnter" },
+		build = function() require("blink.cmp").build():wait(60000) end,
 		config = function()
 			-- Set up custom highlights
 			local highlights = {
@@ -42,8 +43,6 @@ return {
 					["<C-k>"] = { "cancel", "fallback" },
 
 					-- Documentation scrolling
-					["<C-f>"] = { "scroll_documentation_down", "fallback" },
-					["<C-b>"] = { "scroll_documentation_up", "fallback" },
 					["<C-d>"] = { "scroll_documentation_down", "fallback" },
 					["<C-u>"] = { "scroll_documentation_up", "fallback" },
 				},
