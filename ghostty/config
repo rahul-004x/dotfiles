@@ -1,9 +1,20 @@
 # fonts
-font-size = 16
-font-style = medium
+font-size = 14
+font-family = "MonoLisa"
+
+# MonoLisa is a variable font (wght axis 100-1000, defaults to 400).
+# Drive the axis directly instead of font-style: face-name matching is
+# unreliable here because the regular instance is named "MonoLisa", not "Regular".
+font-variation = wght=450
+font-variation-italic = wght=450
+font-variation-bold = wght=600
+font-variation-bold-italic = wght=600
+
+# macOS stem darkening -- off, it bulks glyphs up too much at this weight
+font-thicken = false
+
 bold-is-bright = true
 theme = kanagawabones
-font-family = "Jet Brains Mono"
 
 # cursor
 cursor-style = block
@@ -22,6 +33,7 @@ initial-window = true
 resize-overlay = never
 window-save-state = always
 window-step-resize = false
+background-opacity = 1
 background-blur-radius = 15
 window-padding-balance = true
 confirm-close-surface = false
