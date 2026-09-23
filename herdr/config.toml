@@ -1,0 +1,43 @@
+onboarding = false
+
+[theme]
+name = "kanagawa"
+auto_switch = false
+
+[keys]
+# Plain ctrl+h/j/k/l go through navigate.sh so nvim gets them first
+# (vim-tmux-navigator style); prefix+h/j/k/l always switch herdr panes.
+focus_pane_left = "prefix+h"
+focus_pane_down = "prefix+j"
+focus_pane_up = "prefix+k"
+focus_pane_right = "prefix+l"
+
+previous_tab = "alt+b"
+next_tab = "alt+l"
+
+previous_workspace = "ctrl+["
+next_workspace = "ctrl+]"
+
+[[keys.command]]
+key = "ctrl+h"
+type = "shell"
+command = "$HOME/.config/herdr/navigate.sh left"
+description = "focus left (nvim-aware)"
+
+[[keys.command]]
+key = "ctrl+j"
+type = "shell"
+command = "$HOME/.config/herdr/navigate.sh down"
+description = "focus down (nvim-aware)"
+
+[[keys.command]]
+key = "ctrl+k"
+type = "shell"
+command = "$HOME/.config/herdr/navigate.sh up"
+description = "focus up (nvim-aware)"
+
+[[keys.command]]
+key = "ctrl+l"
+type = "shell"
+command = "$HOME/.config/herdr/navigate.sh right"
+description = "focus right (nvim-aware)"

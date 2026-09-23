@@ -20,8 +20,8 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
   command = "set filetype=dockerfile",
 })
 
--- Pane navigation is handled by nvim-tmux-navigation (<C-h/j/k/l>),
--- which falls back to plain wincmd movement outside tmux.
+-- <C-h/j/k/l> move between nvim windows, then herdr panes at the edge.
+require("plugins.herdr_navigation").setup()
 
 -- Copy to system clipboard
 vim.keymap.set("n", "<leader>y", '"+y')
@@ -31,6 +31,7 @@ vim.keymap.set("v", "<leader>y", '"+y')
 vim.keymap.set("n", "<leader>p", '"+p')
 vim.keymap.set("v", "<leader>p", '"+p')
 
+-- Insert-mode <C-j> exits insert; navigation (above) is normal/terminal mode only.
 vim.keymap.set("i", "<C-j>", "<Esc>", { noremap = true, silent = true })
 
 vim.keymap.set("n", "<leader>h", ":nohlsearch<CR>")

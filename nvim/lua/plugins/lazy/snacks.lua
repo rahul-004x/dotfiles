@@ -502,10 +502,7 @@ return {
         Snacks.terminal.toggle()
       end, { desc = "Toggle Terminal" })
 
-      vim.keymap.set("t", "<C-h>", "<cmd>wincmd h<cr>", { desc = "Go to Left Window" })
-      vim.keymap.set("t", "<C-j>", "<cmd>wincmd j<cr>", { desc = "Go to Lower Window" })
-      vim.keymap.set("t", "<C-k>", "<cmd>wincmd k<cr>", { desc = "Go to Upper Window" })
-      vim.keymap.set("t", "<C-l>", "<cmd>wincmd l<cr>", { desc = "Go to Right Window" })
+      -- Terminal-mode <C-h/j/k/l> come from plugins/herdr_navigation.lua.
       vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { desc = "Exit Terminal Mode" })
     end,
   },
