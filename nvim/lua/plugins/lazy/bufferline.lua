@@ -13,6 +13,16 @@ return {
       show_buffer_close_icons = false,
       show_close_icon = false,
       always_show_bufferline = false,
+      diagnostics = "nvim_lsp",
+      -- Start tabs right of the snacks explorer sidebar instead of above it.
+      offsets = {
+        {
+          filetype = "snacks_layout_box",
+          -- Blank: the explorer's own border already shows an "Explorer" title.
+          text = "",
+          separator = true,
+        },
+      },
     },
   },
 }
