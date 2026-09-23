@@ -6,8 +6,8 @@ return {
       "saghen/blink.cmp",
       "SmiteshP/nvim-navic", -- For breadcrumbs
       {
+        -- Loads with lspconfig, which is the only thing that needs mason's bin on PATH.
         "williamboman/mason.nvim",
-        lazy = false,
         config = function()
           require("mason").setup()
         end,

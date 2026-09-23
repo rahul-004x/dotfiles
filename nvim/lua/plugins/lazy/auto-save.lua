@@ -4,7 +4,8 @@ return {
   cmd = "ASToggle",                        -- optional for lazy loading on command
   event = { "InsertLeave", "TextChanged" }, -- optional for lazy loading on trigger events
   opts = {
-    -- your config goes here
-    -- or just leave it empty :)
+    -- Each save runs conform format-on-save, LSP didSave and gitsigns;
+    -- a longer debounce batches edits instead of saving after every change.
+    debounce_delay = 2500,
   },
 }

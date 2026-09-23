@@ -6,6 +6,8 @@ return {
     opts = {
       input = {},
       indent = { enabled = true },
+      -- Disable treesitter/LSP on huge or minified files so they open without freezing.
+      bigfile = { enabled = true },
       gitbrowse = {},
       statuscolumn = {
         border = false,

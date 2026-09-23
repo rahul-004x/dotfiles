@@ -1,7 +1,8 @@
 -- Add this to your lazy.nvim plugin list
 return {
   "windwp/nvim-ts-autotag",
-  event = { "BufReadPre", "BufNewFile" }, -- Lazy load on file open
+  -- Only tag-based filetypes need it; loading on every file also pulled treesitter in early.
+  ft = { "html", "javascriptreact", "typescriptreact", "vue", "svelte", "xml", "markdown" },
   opts = {
     -- New options format (after 1.0.0)
     autotag = {

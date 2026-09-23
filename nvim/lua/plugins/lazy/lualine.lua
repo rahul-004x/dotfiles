@@ -1,5 +1,7 @@
 return {
 	"nvim-lualine/lualine.nvim",
+	-- Load after the first draw; the statusline appearing a frame later is invisible.
+	event = "VeryLazy",
 	dependencies = {
 		"nvim-tree/nvim-web-devicons",
 		"SmiteshP/nvim-navic",
